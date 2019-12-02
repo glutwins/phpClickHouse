@@ -1,9 +1,9 @@
 {
-  "name": "smi2/phpclickhouse",
+  "name": "glutwins/phpclickhouse",
   "type": "library",
   "description": "PHP ClickHouse Client",
   "keywords": ["clickhouse", "driver", "client", "curl", "http", "HTTP client", "php"],
-  "homepage": "https://github.com/smi2/phpClickHouse",
+  "homepage": "https://github.com/glutwins/phpClickHouse",
   "license": "MIT",
   "authors": [
     {
