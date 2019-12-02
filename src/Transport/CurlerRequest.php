@@ -108,7 +108,7 @@ class CurlerRequest
             CURLOPT_SSL_VERIFYHOST => 0,
             CURLOPT_SSL_VERIFYPEER => false,
             CURLOPT_TIMEOUT => 10,
-            CURLOPT_CONNECTTIMEOUT => 5, // Количество секунд ожидания при попытке соединения
+            CURLOPT_CONNECTTIMEOUT_MS => 5000, // Количество секунд ожидания при попытке соединения
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_HEADER => TRUE,
@@ -462,7 +462,7 @@ class CurlerRequest
      */
     public function connectTimeOut($seconds = 1)
     {
-        $this->options[CURLOPT_CONNECTTIMEOUT] = $seconds;
+        $this->options[CURLOPT_CONNECTTIMEOUT_MS] = $seconds * 1000;
         return $this;
     }
 

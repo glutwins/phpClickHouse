@@ -180,7 +180,7 @@ class Client
     /**
      * ConnectTimeOut in seconds ( support 1.5 = 1500ms )
      */
-    public function setConnectTimeOut(int $connectTimeOut)
+    public function setConnectTimeOut(float $connectTimeOut)
     {
         $this->transport()->setConnectTimeOut($connectTimeOut);
     }
