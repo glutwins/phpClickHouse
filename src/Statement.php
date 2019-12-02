@@ -205,7 +205,7 @@ class Statement
      * @return bool
      * @throws Exception\TransportException
      */
-    private function init()
+    public function init()
     {
         if ($this->_init) {
             return false;
