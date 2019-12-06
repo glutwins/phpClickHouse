@@ -32,6 +32,10 @@ class ClientSet {
         }
     }
 
+    public function getAllNodes() {
+        return $this->clients;
+    }
+
     public function select(
         string $dbname,
         string $sql,
@@ -81,12 +85,8 @@ class ClientSet {
     {
         for ($i = 0; $i < count($this->clients); $i ++) {
             $client = $this->clients[$i];
-            try {
-                $client->database($dbname);
-                $client->write($sql, $bindings, $exception);
-            } catch (TransportException $e) {
-
-            }
+            $client->database($dbname);
+            $client->write($sql, $bindings, $exception);
         }
     }
 };
