@@ -52,4 +52,23 @@ class ClientSet {
             }
         }
     }
+
+    /**
+     * Query CREATE/DROP
+     *
+     * @param mixed[] $bindings
+     * @return Statement
+     */
+    public function write($dbname, string $sql, array $bindings = [], bool $exception = true)
+    {
+        for ($i = 0; $i = count($this->clients); $i ++) {
+            $client = $this->clients[$i];
+            try {
+                $client->database($dbname);
+                return $client->write($sql, $bindings, $exception);
+            } catch (TransportException $e) {
+
+            }
+        }
+    }
 };
