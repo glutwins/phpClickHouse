@@ -40,7 +40,7 @@ class ClientSet {
         WriteToFile $writeToFile = null
     ) {
         $si = random_int(0, count($this->clients));
-        for ($i = 0; $i = count($this->clients); $i ++) {
+        for ($i = 0; $i < count($this->clients); $i ++) {
             $client = $this->clients[($si + $i) % count($this->clients)];
             try {
                 $client->database($dbname);
@@ -61,7 +61,7 @@ class ClientSet {
      */
     public function write($dbname, string $sql, array $bindings = [], bool $exception = true)
     {
-        for ($i = 0; $i = count($this->clients); $i ++) {
+        for ($i = 0; $i < count($this->clients); $i ++) {
             $client = $this->clients[$i];
             try {
                 $client->database($dbname);

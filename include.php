@@ -12,6 +12,7 @@ include_once __DIR__ . '/src/Exception/TransportException.php';
 // Client
 include_once __DIR__ . '/src/Statement.php';
 include_once __DIR__ . '/src/Client.php';
+include_once __DIR__ . '/src/ClientSet.php';
 include_once __DIR__ . '/src/Settings.php';
 include_once __DIR__ . '/src/Cluster.php';
 // Query
