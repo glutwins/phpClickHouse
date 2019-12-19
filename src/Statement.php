@@ -4,6 +4,7 @@ namespace ClickHouseDB;
 
 use ClickHouseDB\Exception\DatabaseException;
 use ClickHouseDB\Exception\QueryException;
+use ClickHouseDB\Exception\TransportException;
 use ClickHouseDB\Query\Query;
 use ClickHouseDB\Transport\CurlerRequest;
 use ClickHouseDB\Transport\CurlerResponse;
@@ -176,7 +177,7 @@ class Statement
             $message = $this->response()->error();
         }
 
-        throw new QueryException($message, $code);
+        throw new TransportException($message, $code);
     }
 
     /**
