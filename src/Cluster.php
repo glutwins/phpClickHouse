@@ -155,6 +155,11 @@ class Cluster
         return $this;
     }
 
+    public function setReadOnlyUser(bool $flag)
+    {
+        foreach ($this->clients AS $client) $client->setReadOnlyUser($flag);
+    }
+
     /**
      * Check the status of the cluster, the request is taken from the documentation for CH
      * total_replicas <2 - not suitable for no replication clusters
