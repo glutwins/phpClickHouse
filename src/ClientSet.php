@@ -89,4 +89,9 @@ class ClientSet {
             $client->write($sql, $bindings, $exception);
         }
     }
+
+    public function setReadOnlyUser(bool $flag)
+    {
+        foreach ($this->clients AS $client) $client->setReadOnlyUser($flag);
+    }
 };
