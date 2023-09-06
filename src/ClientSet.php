@@ -43,6 +43,7 @@ class ClientSet {
         WhereInFile $whereInFile = null,
         WriteToFile $writeToFile = null
     ) {
+        $exception = null;
         $si = random_int(0, count($this->clients));
         for ($i = 0; $i < count($this->clients); $i ++) {
             $client = $this->clients[($si + $i) % count($this->clients)];
@@ -52,9 +53,10 @@ class ClientSet {
                 $stmt->init();
                 return $stmt;
             } catch (TransportException $e) {
-
+                $exception = $e;
             }
         }
+        throw $exception;
     }
 
     /**
@@ -65,15 +67,17 @@ class ClientSet {
      */
     public function write($dbname, string $sql, array $bindings = [], bool $exception = true)
     {
+        $exception = null;
         for ($i = 0; $i < count($this->clients); $i ++) {
             $client = $this->clients[$i];
             try {
                 $client->database($dbname);
                 return $client->write($sql, $bindings, $exception);
             } catch (TransportException $e) {
-
+                $exception = $e;
             }
         }
+        throw $exception;
     }
 
     /**
